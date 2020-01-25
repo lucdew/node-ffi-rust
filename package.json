@@ -1,0 +1,20 @@
+{
+  "name": "nodeffirust",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "ffi": "github:lxe/node-ffi#node-12",
+    "ref": "github:lxe/ref#node-12",
+    "ref-array": "github:lxe/ref-array#node-12",
+    "ref-struct": "github:lxe/ref-struct#node-12"
+  },
+  "engines": {
+    "node": "~12"
+  }
+}
