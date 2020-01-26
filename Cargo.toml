@@ -8,11 +8,11 @@ edition = "2018"
 
 [dependencies]
 libc = "*"
-rsa = "0.2"
-# For oaep support
-#rsa = { git = "https://github.com/lucdew/RSA", branch = "oaep"}
+rsa = { git = "https://github.com/lucdew/RSA", branch = "oaep"}
 num-bigint = { version = "0.6", features = ["rand", "i128", "u64_digit", "prime", "zeroize"], package = "num-bigint-dig" }
 rand = "0.7.0"
+sha2 = "0.8.0"
+
 
 [lib]
 crate-type = ["cdylib"]

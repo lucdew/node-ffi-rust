@@ -1,6 +1,7 @@
 use num_bigint::BigUint;
 use rand::rngs::OsRng;
-use rsa::{PaddingScheme, PublicKey, RSAPrivateKey};
+use rsa::{oaep, RSAPrivateKey, RSAPublicKey};
+use sha2::Sha256;
 use std::slice;
 
 fn get_private_key() -> RSAPrivateKey {
@@ -59,10 +60,9 @@ pub fn encrypt(data: *const u8, len: usize) -> *const ArrayStruct {
     /*    let key = RSAPrivateKey::new(&mut rng, bits).expect("failed to generate a key");*/
 
     let key = get_private_key();
+    let pub_key: RSAPublicKey = key.clone().into();
 
-    // Encrypt
-    let enc_data = key
-        .encrypt(&mut rng, PaddingScheme::PKCS1v15, &array)
+    let enc_data = oaep::encrypt(&mut rng, &pub_key, &array, &mut Sha256::default(), None)
         .expect("failed to encrypt");
 
     let buf = enc_data.as_ptr();
