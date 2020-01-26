@@ -5,10 +5,10 @@ Use at your own risk
 
 # Build
 
-`
+```
 cargo build --release
 npm i
-`
+```
 
 # Test
 
